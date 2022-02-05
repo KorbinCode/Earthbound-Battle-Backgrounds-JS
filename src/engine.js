@@ -1,6 +1,6 @@
 let frameID = -1
-export const SNES_WIDTH = 256
-export const SNES_HEIGHT = 224
+export const SNES_WIDTH = 512
+export const SNES_HEIGHT = 448
 export default class Engine {
   constructor (layers = [], opts) {
     this.layers = layers
