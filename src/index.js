@@ -5,15 +5,26 @@ import BackgroundLayer from "./rom/background_layer";
 const backgroundData = new Uint8Array(
   Array.from(data).map(x => x.charCodeAt(0))
 );
-
+window.wallpaperPropertyListener = {
+    applyUserProperties: function(properties) {
+        if (properties.layer1) {
+            const layer1Val = properties.layer1.value;
+            // Do something useful with the value here or assign it to a global variable
+        }
+        if (properties.layer2) {
+            const layer2Val = properties.layer2.value;
+            // Do something useful with the value here or assign it to a global variable
+        }      
+    },
+};
 export const ROM = new Rom(backgroundData);
 
 var setupEngine = (exports.setupEngine = function setupEngine() {
   let params = getJsonFromUrl();
   let loader = null;
 
-  let layer1Val = parseLayerParam(params.layer1, { firstLayer: true });
-  let layer2Val = parseLayerParam(params.layer2, { firstLayer: false });
+  //let layer1Val = parseLayerParam(params.layer1, { firstLayer: true });
+  //let layer2Val = parseLayerParam(params.layer2, { firstLayer: false });
   let frameskip = parseFrameskipParam(params.frameskip);
   let aspectRatio = parseAspectRatioParam(params.aspectRatio);
   parseFullscreen(params.fullscreen);
